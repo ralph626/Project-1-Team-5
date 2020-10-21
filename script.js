@@ -1,10 +1,13 @@
 var geniusAPIKey = 'da2f98a609msh0e05646ac6fcbffp1befeajsndb45802075e4';
 var qrCodeAPIKey = 'da2f98a609msh0e05646ac6fcbffp1befeajsndb45802075e4';
 
-// searchGenius("Summer Love Trevor Something");
-createQRCode('https://bootcampspot.com/');
+
+
+
+
 
 // Returns an array of 10 results.
+// EXAMPLE: searchGenius("Summer Love Trevor Something");
 function searchGenius(searchString)
 {
     var escapedSearch = encodeURI(searchString);
@@ -31,6 +34,7 @@ function searchGenius(searchString)
 }
 
 // Returns a url for the jpg asset.
+// EXAMPLE: createQRCode('https://bootcampspot.com/');
 function createQRCode(contentsString)
 {
     var escapedSearch = encodeURI(contentsString);
