@@ -1,25 +1,43 @@
 $(document).ready(function(){
-
-
-
     var geniusAPIKey = 'da2f98a609msh0e05646ac6fcbffp1befeajsndb45802075e4';
     var qrCodeAPIKey = 'da2f98a609msh0e05646ac6fcbffp1befeajsndb45802075e4';
 
+    // References
+    var resultsSection = $("#results");
+    
+    
 
-    // TODO: Get the string from the input
-    // TODO: Call the function with that input
+
+    // -TODO: Get the string from the input
+    // -TODO: Call the function with that input
     // TODO: Display results.
     // TODO: Make the results clickable.
     // TODO: Function for assigning things to second page.
 
+    // On Click Functions
+    $("#user-input-button").click(function(){
+        var userInput = $("#user-input").val();
+        searchGenius(userInput);
+    });
 
-    searchGenius("Phil Collins");
 
-
-    // Called once we get all the results back.
+    // Callback function once we get all the results.
     function assignResultToPage(hitArray)
     {
-        console.log(hitArray[0]);
+        resultsSection.empty();
+        for (var i = 0; i < hitArray.length; i++) 
+        {
+            console.log(hitArray[i].result);
+
+            var resultDiv = $("<div>");
+            var songName = $("<h4>").text(hitArray[i].result.full_title);
+
+            var albumArt = $(`<img src="${hitArray[i].result.header_image_url}" width="200px" height="200px">`)
+
+            resultDiv.append(albumArt);
+            resultDiv.append(songName);
+            resultsSection.append(resultDiv);
+        }
     }
 
 
