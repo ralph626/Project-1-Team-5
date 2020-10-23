@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=100, initial-scale=1.0">
-    <title>lyric you know now</title>
+    <title>Lyrics You Now Know</title>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Custom Script -->
     <script src="script.js"></script>
 </head>
 <body>
+    <section id="main-page">
+        <header class="navbar">
+            <!-- Website name -->
+        <h1>Lyrics You Now Know</h1>
+        </header>
+            
+        <!-- Input field for searching lyrics. -->
+        <input type="text" placeholder="Song Look Up" name="Search">
+        <!-- TODO: Link this to the input field above. -->
+        <a href="#">Search</a>
+
+        <!--search result-->
+        <section id="results"></section>
+    </section>
+
     <section id="secondary-page">
         <section>
             <!-- Song Title -->
@@ -32,7 +47,6 @@
         <section>
             <h3>Page Views: <span id="page-views"></span></h3>
         </section>
-
     </section>
 </body>
 </html>
