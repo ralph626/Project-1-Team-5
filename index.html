@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=100, initial-scale=1.0">
-    <title>Lyric You Now Know</title>
+    <title>Lyrics You Now Know</title>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Custom Script -->
     <script src="script.js"></script>
 </head>
 <body>
-
-    <section>
+    <section id="main-page">
         <header class="navbar">
             <!-- Website name -->
-           <h1>Lyric You Now Know</h1>
+        <h1>Lyrics You Now Know</h1>
         </header>
             
         <!-- Input field for searching lyrics. -->
@@ -24,6 +23,30 @@
 
         <!--search result-->
         <section id="results"></section>
+    </section>
+
+    <section id="secondary-page">
+        <section>
+            <!-- Song Title -->
+            <h1 id="song-title">Title</h1>
+            <!-- Artist Name -->
+            <h2 id="artist-name">Artist</h2>
+            <!-- Image tag for the album art -->
+            <img id="album-art" src="" alt="album-art">
+            <!-- Image tag for the QR Code -->
+            <img id="qr-code" src="" alt="lyrics-qr-code">
+        </section>
+        <!-- Section that holds the Lyrics -->
+        <section>
+            <!-- Title to show the lyrics section -->
+            <h3>Lyrics:</h3>
+            <p id='lyrics-container'>
+                
+            </p>
+        </section>
+        <section>
+            <h3>Page Views: <span id="page-views"></span></h3>
+        </section>
     </section>
 </body>
 </html>
