@@ -10,7 +10,8 @@ $(document).ready(function(){
     // -TODO: Call the function with that input.
     // -TODO: Display results.
     // -TODO: Make the results clickable.
-    // TODO: Function for assigning things to second page.
+    // -TODO: Function for assigning things to second page.
+    // TODO:Make sure to clear the QR Code.
 
     // On Click Functions
     $("#user-input-button").click(function()
@@ -19,7 +20,10 @@ $(document).ready(function(){
         searchGenius(userInput);
     });
 
-    backToMainPage();
+    $("#back-button").click(function()
+    {
+        showMainPage();
+    });
 
 
     // Callback function once we get all the results.
@@ -49,14 +53,17 @@ $(document).ready(function(){
 
     function assignSelectedSongToSecondaryPage (songObject)
     {
+        console.log(songObject);
         $("#main-page").addClass('hide');
         $("#secondary-page").removeClass('hide');
         createQRCode(songObject.result.url);
         $("#song-title").text(songObject.result.title);
         $("#artist-name").text(songObject.result.primary_artist.name);
         $("#album-art").attr("src", songObject.result.header_image_url);
+        $("#page-views").text(songObject.result.stats.pageviews);
     }
 
+    //#region API Functions
     // Returns an array of 10 results.
     // EXAMPLE: searchGenius("Summer Love Trevor Something");
     function searchGenius(searchString)
@@ -75,11 +82,9 @@ $(document).ready(function(){
             }
         };
         // Log the escaped search string.
-        // console.log(escapedSearch);
         $.ajax(settings).done(function (response) 
         {
             // Log the hits that we then return.
-            // console.log(response.response.hits);
             assignResultToMainPage(response.response.hits);
         });
     }
@@ -102,12 +107,14 @@ $(document).ready(function(){
             }
         };
         
-        $.ajax(settings).done(function (response) {
-            // console.log(response.url);
+        $.ajax(settings).done(function (response) 
+        {
             $("#qr-code").attr("src", response.url);
         });
     }
+    //#endregion
     
+    //#region Lyrics function
     // Experimental function for scraping lyrics.
     function scrapeLyrics (path)
     {
@@ -117,10 +124,20 @@ $(document).ready(function(){
             return rawLyrics;
         });
     }
+    //#endregion
 
-    function backToMainPage()
+    //#region Helpers for showing and hiding using CSS.
+    function showMainPage()
     {
+        console.log("Here");
         $("#secondary-page").addClass('hide');
         $("#main-page").removeClass('hide');
     }
+
+    function showSecondaryPage ()
+    {
+        $("#secondary-page").removeClass('hide');
+        $("#main-page").addClass('hide');
+    }
+    //#endregion
 });
