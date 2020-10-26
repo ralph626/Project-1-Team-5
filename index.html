@@ -7,7 +7,9 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Custom Script -->
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section id="main-page">
@@ -17,9 +19,9 @@
         </header>
             
         <!-- Input field for searching lyrics. -->
-        <input type="text" placeholder="Song Look Up" name="Search">
+        <input id="user-input" type="text" placeholder="Song Look Up" name="Search">
         <!-- TODO: Link this to the input field above. -->
-        <a href="#">Search</a>
+        <button id="user-input-button" type="submit">Search</button>
 
         <!--search result-->
         <section id="results"></section>
@@ -27,6 +29,8 @@
 
     <section id="secondary-page">
         <section>
+            <!-- Back button -->
+            <button id="back-button">Back</button>
             <!-- Song Title -->
             <h1 id="song-title">Title</h1>
             <!-- Artist Name -->
@@ -34,7 +38,7 @@
             <!-- Image tag for the album art -->
             <img id="album-art" src="" alt="album-art">
             <!-- Image tag for the QR Code -->
-            <img id="qr-code" src="" alt="lyrics-qr-code">
+            <img id="qr-code" src="" height="133" width="133" alt="lyrics-qr-code">
         </section>
         <!-- Section that holds the Lyrics -->
         <section>
