@@ -1,4 +1,15 @@
+body{
+    background-color: #7da0c6;
+}
+
 .hide
 {
     display: none;
+}
+
+#main-page
+{
+    font-family: 'Jost', sans-serif;
+    position: absolute;
+    text-align: center;
 }
