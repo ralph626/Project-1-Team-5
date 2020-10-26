@@ -11,7 +11,9 @@ $(document).ready(function(){
     // -TODO: Display results.
     // -TODO: Make the results clickable.
     // -TODO: Function for assigning things to second page.
-    // TODO:Make sure to clear the QR Code.
+    // -TODO: Make sure to clear the QR Code.
+
+    showMainPage();
 
     // On Click Functions
     $("#user-input-button").click(function()
@@ -20,10 +22,7 @@ $(document).ready(function(){
         searchGenius(userInput);
     });
 
-    $("#back-button").click(function()
-    {
-        showMainPage();
-    });
+    $("#back-button").click(showMainPage);
 
 
     // Callback function once we get all the results.
@@ -132,6 +131,8 @@ $(document).ready(function(){
         console.log("Here");
         $("#secondary-page").addClass('hide');
         $("#main-page").removeClass('hide');
+
+        $("#qr-code").attr('src','https://media.tenor.com/images/3df0af1b63e3d246a96091dc74196127/raw');
     }
 
     function showSecondaryPage ()
