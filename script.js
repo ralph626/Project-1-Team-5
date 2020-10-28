@@ -18,8 +18,9 @@ $(document).ready(function(){
     showMainPage();
 
     // On Click Functions
-    $("#user-input-button").click(function()
+    $("#inputForm").on("submit", function(e)
     {
+        e.preventDefault();
         var userInput = $("#user-input").val();
         searchGenius(userInput);
     });
@@ -39,7 +40,6 @@ $(document).ready(function(){
             cardContainer.addClass("card mx-auto m-4 p-2");
             var albumArt = $(`<img src="${hitArray[i].result.header_image_thumbnail_url}">`);
             albumArt.addClass("album-art card-img-top");
-            console.log(hitArray[i].result);
             var songName = $("<h4>").text(hitArray[i].result.full_title);
             songName.addClass("mt-2");
 

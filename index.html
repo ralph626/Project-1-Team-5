@@ -18,17 +18,16 @@
 <body>
     <section id="main-page" class="container">
         <div class="row">
-            <div class="col-6 mx-auto mt-5">
+            <div class="col-6 mx-auto my-5">
                 <!-- Website name -->
                 <h1>Lyrics You Now Know</h1>
                 <!-- Input field for searching lyrics. -->
-                <div class="input-group mb-3">
-                    <input class="form-control" id="user-input" type="text" placeholder="Artist or song name..." name="Search">
-                    <!-- TODO: Link this to the input field above. -->
-                    <div class="input-group-append">
+                <form id="inputForm" class="form-inline">
+                    <div class="input-group">
+                        <input class="form-control" id="user-input" type="text" placeholder="Artist or song name..." name="Search">
                         <button class="btn btn-dark" id="user-input-button" type="submit">Search</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="row">
@@ -39,7 +38,7 @@
         </div>
     </section>
 
-    <section id="!secondary-page" class="container-md">
+    <section id="secondary-page" class="container-md">
         
         <div class="row my-4">
             <div class="col-2">
