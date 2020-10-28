@@ -39,30 +39,45 @@
         </div>
     </section>
 
-    <section id="secondary-page">
-        <section>
-            <!-- Back button -->
-            <button id="back-button">Back</button>
-            <!-- Song Title -->
-            <h1 id="song-title">Title</h1>
-            <!-- Artist Name -->
-            <h2 id="artist-name">Artist</h2>
-            <!-- Image tag for the album art -->
-            <img id="album-art" src="" alt="album-art">
-            <!-- Image tag for the QR Code -->
-            <img id="qr-code" src="" height="133" width="133" alt="lyrics-qr-code">
-        </section>
-        <!-- Section that holds the Lyrics -->
-        <section>
-            <!-- Title to show the lyrics section -->
-            <h3>Lyrics:</h3>
-            <p id='lyrics-container'>
-                
-            </p>
-        </section>
-        <section>
-            <h3>Page Views: <span id="page-views"></span></h3>
-        </section>
+    <section id="!secondary-page" class="container-md">
+        
+        <div class="row my-4">
+            <div class="col-2">
+                <!-- Back button -->
+                <button id="back-button" class="btn btn-dark px-4 my-4">Back</button>
+            </div>
+
+            <div class="col text-center">
+                <!-- Song Title -->
+                <h1 id="song-title">Title</h1>
+                <!-- Artist Name -->
+                <h2 id="artist-name">Artist</h2>
+            </div>
+
+            <div class="col-2 text-right">
+
+            </div>
+        </div>
+        
+        <div class="row">
+            <div>
+                <!-- Image tag for the album art -->
+                <img id="album-art" src="https://via.placeholder.com/200" alt="album-art">
+                <!-- Image tag for the QR Code -->
+                <img id="qr-code" src="" height="133" width="133" alt="lyrics-qr-code">
+            </div>
+            <!-- Section that holds the Lyrics -->
+            <div>
+                <!-- Title to show the lyrics section -->
+                <h3>Lyrics:</h3>
+                <p id='lyrics-container'>
+                    Lyrics
+                </p>
+            </div>
+            <div>
+                <h3>Page Views: <span id="page-views"></span></h3>
+            </div>
+        </div>
     </section>
 </body>
 </html>

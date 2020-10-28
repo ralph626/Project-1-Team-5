@@ -13,7 +13,7 @@ $(document).ready(function(){
     // -TODO: Function for assigning things to second page.
     // -TODO: Make sure to clear the QR Code.
     // -TODO: Make the whole card a button.
-    // TODO: Center search initially then sort into columns.
+    // -TODO: Center into columns.
 
     showMainPage();
 
@@ -56,9 +56,7 @@ $(document).ready(function(){
 
     function assignSelectedSongToSecondaryPage (songObject)
     {
-        console.log(songObject);
-        $("#main-page").addClass('hide');
-        $("#secondary-page").removeClass('hide');
+        showSecondaryPage();
         createQRCode(songObject.result.url);
         $("#song-title").text(songObject.result.title);
         $("#artist-name").text(songObject.result.primary_artist.name);
