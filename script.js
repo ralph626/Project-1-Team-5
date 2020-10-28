@@ -36,11 +36,12 @@ $(document).ready(function(){
             // console.log(hitArray[i].result);
 
             var cardContainer = $("<button>");
-            cardContainer.addClass("card mx-auto m-4");
+            cardContainer.addClass("card mx-auto m-4 p-2");
             var albumArt = $(`<img src="${hitArray[i].result.header_image_thumbnail_url}">`);
             albumArt.addClass("album-art card-img-top");
             console.log(hitArray[i].result);
             var songName = $("<h4>").text(hitArray[i].result.full_title);
+            songName.addClass("mt-2");
 
             cardContainer.on('click', {songObject: hitArray[i]}, function (event)
             {
