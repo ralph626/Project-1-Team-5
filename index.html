@@ -17,27 +17,24 @@
 </head>
 <body>
     <section id="main-page">
-        <div class="navbar">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <!-- Website name -->
-                    <h1>Lyrics You Now Know</h1>
-                    
-                    <!-- Input field for searching lyrics. -->
-                    <div class="input-group mb-3">
-                        <input class="form-control" id="user-input" type="text" placeholder="Artist or song name..." name="Search">
-                        <!-- TODO: Link this to the input field above. -->
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" id="user-input-button" type="submit">Search</button>
-                        </div>
+        <div class="row">
+            <div class="col-3">
+                <!-- Website name -->
+                <h1>Lyrics You Now Know</h1>
+                <!-- Input field for searching lyrics. -->
+                <div class="input-group mb-3">
+                    <input class="form-control" id="user-input" type="text" placeholder="Artist or song name..." name="Search">
+                    <!-- TODO: Link this to the input field above. -->
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" id="user-input-button" type="submit">Search</button>
                     </div>
                 </div>
-                <div class="col">
-                    <!--search result-->
-                    <section id="results"></section>
+            </div>
+            <div class="col">
+                <!--search result-->
+                <div class="container-lg">
+                    <div id="results"></div>
                 </div>
-                
             </div>
         </div>
     </section>

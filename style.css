@@ -10,6 +10,37 @@ body{
 #main-page
 {
     font-family: 'Jost', sans-serif;
-    position: absolute;
     text-align: center;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    /* display: flex; */
+    height: 300px;
+
+    /* width: 100%; */
+    /* color: #333333; */
+    /* margin: 0 auto; */
+    /* overflow: hidden; */
+    /* padding: 10px 0; */
+    /* align-items: center; */
+    /* float: none; */
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.album-art
+{
+    width: 100px;
+    height: 100px;
 }

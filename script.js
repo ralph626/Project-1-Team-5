@@ -12,6 +12,8 @@ $(document).ready(function(){
     // -TODO: Make the results clickable.
     // -TODO: Function for assigning things to second page.
     // -TODO: Make sure to clear the QR Code.
+    // -TODO: Make the whole card a button.
+    // TODO: Center search initially then sort into columns.
 
     showMainPage();
 
@@ -33,19 +35,22 @@ $(document).ready(function(){
         {
             // console.log(hitArray[i].result);
 
-            var resultDiv = $("<div>");
-            var albumArt = $(`<img src="${hitArray[i].result.header_image_url}" width="200px" height="200px">`);
+            var resultDiv = $('<button>');
+            resultDiv.addClass("card");
+            var albumArt = $(`<img src="${hitArray[i].result.header_image_url}>"`);
+            albumArt.addClass("album-art");
+            var cardContainer = $("<div>");
+            cardContainer.addClass("container");
             var songName = $("<h4>").text(hitArray[i].result.full_title);
-            var selectButton = $("<button>").text("Select this song.");
 
-            selectButton.on('click', {songObject: hitArray[i]}, function (event)
+            resultDiv.on('click', {songObject: hitArray[i]}, function (event)
             {
                 assignSelectedSongToSecondaryPage(event.data.songObject);
             });
 
-            resultDiv.append(songName);
-            resultDiv.append(albumArt);
-            resultDiv.append(selectButton);
+            cardContainer.append(songName);
+            cardContainer.append(albumArt);
+            resultDiv.append(cardContainer);
             resultsSection.append(resultDiv);
         }
     }
@@ -128,7 +133,6 @@ $(document).ready(function(){
     //#region Helpers for showing and hiding using CSS.
     function showMainPage()
     {
-        console.log("Here");
         $("#secondary-page").addClass('hide');
         $("#main-page").removeClass('hide');
 
