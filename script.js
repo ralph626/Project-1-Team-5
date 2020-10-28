@@ -34,8 +34,6 @@ $(document).ready(function(){
         resultsSection.empty();
         for (var i = 0; i < hitArray.length; i++) 
         {
-            // console.log(hitArray[i].result);
-
             var cardContainer = $("<button>");
             cardContainer.addClass("card mx-auto m-4 p-2");
             var albumArt = $(`<img src="${hitArray[i].result.header_image_thumbnail_url}">`);
@@ -56,12 +54,13 @@ $(document).ready(function(){
 
     function assignSelectedSongToSecondaryPage (songObject)
     {
-        showSecondaryPage();
         createQRCode(songObject.result.url);
+
         $("#song-title").text(songObject.result.title);
         $("#artist-name").text(songObject.result.primary_artist.name);
         $("#album-art").attr("src", songObject.result.header_image_url);
         $("#page-views").text(songObject.result.stats.pageviews);
+        showSecondaryPage();
     }
 
     //#region API Functions
