@@ -83,6 +83,7 @@ $(document).ready(function(){
         // Log the escaped search string.
         $.ajax(settings).done(function (response) 
         {
+            storeSomeShit(searchString)
             // Log the hits that we then return.
             assignResultToMainPage(response.response.hits);
         });
@@ -108,6 +109,7 @@ $(document).ready(function(){
         
         $.ajax(settings).done(function (response) 
         {
+            
             $("#qr-code").attr("src", response.url);
         });
     }
@@ -141,4 +143,12 @@ $(document).ready(function(){
         $("#main-page").addClass('hide');
     }
     //#endregion
+
+    //Store users past searches
+    function storeSomeShit(str){
+        var history = JSON.parse(localStorage.getItem("searchHistory")) || [];
+        history.push(str);
+        localStorage.setItem("searchHistory", JSON.stringify(history))
+    }
 });
+
