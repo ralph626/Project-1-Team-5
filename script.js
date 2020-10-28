@@ -35,23 +35,21 @@ $(document).ready(function(){
         {
             // console.log(hitArray[i].result);
 
-            var resultDiv = $('<button>');
-            resultDiv.addClass("card");
-            var albumArt = $(`<img src="${hitArray[i].result.header_image_url}>"`);
-            albumArt.addClass("album-art");
-            var cardContainer = $("<div>");
-            cardContainer.addClass("container");
+            var cardContainer = $("<button>");
+            cardContainer.addClass("card mx-auto m-4");
+            var albumArt = $(`<img src="${hitArray[i].result.header_image_thumbnail_url}">`);
+            albumArt.addClass("album-art card-img-top");
+            console.log(hitArray[i].result);
             var songName = $("<h4>").text(hitArray[i].result.full_title);
 
-            resultDiv.on('click', {songObject: hitArray[i]}, function (event)
+            cardContainer.on('click', {songObject: hitArray[i]}, function (event)
             {
                 assignSelectedSongToSecondaryPage(event.data.songObject);
             });
 
-            cardContainer.append(songName);
             cardContainer.append(albumArt);
-            resultDiv.append(cardContainer);
-            resultsSection.append(resultDiv);
+            cardContainer.append(songName);
+            resultsSection.append(cardContainer);
         }
     }
 
