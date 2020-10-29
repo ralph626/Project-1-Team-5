@@ -12,12 +12,15 @@ $(document).ready(function(){
     // -TODO: Make the results clickable.
     // -TODO: Function for assigning things to second page.
     // -TODO: Make sure to clear the QR Code.
+    // -TODO: Make the whole card a button.
+    // -TODO: Center into columns.
 
     showMainPage();
 
     // On Click Functions
-    $("#user-input-button").click(function()
+    $("#inputForm").on("submit", function(e)
     {
+        e.preventDefault();
         var userInput = $("#user-input").val();
         searchGenius(userInput);
     });
@@ -31,35 +34,38 @@ $(document).ready(function(){
         resultsSection.empty();
         for (var i = 0; i < hitArray.length; i++) 
         {
-            // console.log(hitArray[i].result);
-
-            var resultDiv = $("<div>");
-            var albumArt = $(`<img src="${hitArray[i].result.header_image_url}" width="200px" height="200px">`);
+            var cardContainer = $("<button>");
+            cardContainer.addClass("card mx-auto m-4 p-2");
+            var albumArt = $(`<img src="${hitArray[i].result.header_image_thumbnail_url}">`);
+            albumArt.addClass("album-art card-img-top");
             var songName = $("<h4>").text(hitArray[i].result.full_title);
-            var selectButton = $("<button>").text("Select this song.");
+            songName.addClass("mt-2");
 
-            selectButton.on('click', {songObject: hitArray[i]}, function (event)
+            cardContainer.on('click', {songObject: hitArray[i]}, function (event)
             {
                 assignSelectedSongToSecondaryPage(event.data.songObject);
             });
 
-            resultDiv.append(songName);
-            resultDiv.append(albumArt);
-            resultDiv.append(selectButton);
-            resultsSection.append(resultDiv);
+            cardContainer.append(albumArt);
+            cardContainer.append(songName);
+            resultsSection.append(cardContainer);
         }
     }
 
     function assignSelectedSongToSecondaryPage (songObject)
     {
-        console.log(songObject);
-        $("#main-page").addClass('hide');
-        $("#secondary-page").removeClass('hide');
         createQRCode(songObject.result.url);
+        scrapeLyrics(songObject.result.path);
+
         $("#song-title").text(songObject.result.title);
         $("#artist-name").text(songObject.result.primary_artist.name);
         $("#album-art").attr("src", songObject.result.header_image_url);
-        $("#page-views").text(songObject.result.stats.pageviews);
+        $("#page-views").text((songObject.result.stats.pageviews).toLocaleString('en'));
+        $("#full-url").attr('href', songObject.result.url);
+        $("#full-url").text("View song on Genius.");
+        $("#full-title").text(songObject.result.full_title);
+        
+        showSecondaryPage();
     }
 
     //#region API Functions
@@ -86,6 +92,7 @@ $(document).ready(function(){
             storeSomeShit(searchString)
             // Log the hits that we then return.
             assignResultToMainPage(response.response.hits);
+            console.log(response.response.hits[0]);
         });
     }
 
@@ -119,10 +126,11 @@ $(document).ready(function(){
     // Experimental function for scraping lyrics.
     function scrapeLyrics (path)
     {
-        $.get("https://cors-anywhere.herokuapp.com/https://genius.com/" + path).then(data=> 
+        $.get("https://hide-the-payne.herokuapp.com/https://genius.com/" + path).then(data=> 
         {
-            const rawLyrics = data.split(/(<!--sse-->)|(<!--\/sse-->)/)[9].replace(/<a href(.*?|\s*?)*?>/g,"").replace(/<.*?>/g,"");
-            return rawLyrics;
+            var rawLyrics = data.split(/(<!--sse-->)|(<!--\/sse-->)/)[9].replace(/<a href(.*?|\s*?)*?>/g,"").replace(/<.*?>/g,"");
+            // rawLyrics = rawLyrics.replace(/(?:\r\n|\r|\n)/g, '<br>');
+            $("#lyrics-container").text(rawLyrics);
         });
     }
     //#endregion
@@ -130,11 +138,11 @@ $(document).ready(function(){
     //#region Helpers for showing and hiding using CSS.
     function showMainPage()
     {
-        console.log("Here");
         $("#secondary-page").addClass('hide');
         $("#main-page").removeClass('hide');
 
         $("#qr-code").attr('src','https://media.tenor.com/images/3df0af1b63e3d246a96091dc74196127/raw');
+        $("#lyrics-container").text("Loading lyrics...");
     }
 
     function showSecondaryPage ()

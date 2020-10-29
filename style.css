@@ -1,4 +1,49 @@
+body{
+    background-color: #7da0c6;
+}
+
 .hide
 {
     display: none;
+}
+
+#inputForm
+{
+    display: block;
+}
+
+#main-page
+{
+    font-family: 'Jost', sans-serif;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#secondary-page
+{
+    font-family: 'Jost', sans-serif;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.card 
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    transition: all ease-in-out 0.5s;
+    display: inline-block;
+    /* width: 45%; */
+}
+
+.card:hover 
+{
+    box-shadow: 0 14px 28px 0 rgba(0,0,0,0.5);
+}
+
+#album-art
+{
+    width: 100%;
+    padding: 3%;
+    border-radius: 20px;
 }
