@@ -140,6 +140,7 @@ $(document).ready(function(){
         $("#main-page").removeClass('hide');
 
         $("#qr-code").attr('src','https://media.tenor.com/images/3df0af1b63e3d246a96091dc74196127/raw');
+        $("#lyrics-container").text("Loading lyrics...");
     }
 
     function showSecondaryPage ()
