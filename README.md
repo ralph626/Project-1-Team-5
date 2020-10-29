@@ -2,7 +2,7 @@ GitHub Link: https://github.com/ralph626/Project-1-Team-5
 
 GitHub Pages Link: https://ralph626.github.com/Project-1-Team-5
 
-[Screenshot](.assets/screenshot.png)
+![Screenshot](.assets/screenshot.png)
 
 
 # Project 1
