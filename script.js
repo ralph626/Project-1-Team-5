@@ -55,11 +55,16 @@ $(document).ready(function(){
     function assignSelectedSongToSecondaryPage (songObject)
     {
         createQRCode(songObject.result.url);
+        scrapeLyrics(songObject.result.path);
 
         $("#song-title").text(songObject.result.title);
         $("#artist-name").text(songObject.result.primary_artist.name);
         $("#album-art").attr("src", songObject.result.header_image_url);
-        $("#page-views").text(songObject.result.stats.pageviews);
+        $("#page-views").text((songObject.result.stats.pageviews).toLocaleString('en'));
+        $("#full-url").attr('href', songObject.result.url);
+        $("#full-url").text("View song on Genius.");
+        $("#full-title").text(songObject.result.full_title);
+        
         showSecondaryPage();
     }
 
@@ -86,6 +91,7 @@ $(document).ready(function(){
         {
             // Log the hits that we then return.
             assignResultToMainPage(response.response.hits);
+            console.log(response.response.hits[0]);
         });
     }
 
@@ -118,10 +124,11 @@ $(document).ready(function(){
     // Experimental function for scraping lyrics.
     function scrapeLyrics (path)
     {
-        $.get("https://cors-anywhere.herokuapp.com/https://genius.com/" + path).then(data=> 
+        $.get("https://hide-the-payne.herokuapp.com/https://genius.com/" + path).then(data=> 
         {
-            const rawLyrics = data.split(/(<!--sse-->)|(<!--\/sse-->)/)[9].replace(/<a href(.*?|\s*?)*?>/g,"").replace(/<.*?>/g,"");
-            return rawLyrics;
+            var rawLyrics = data.split(/(<!--sse-->)|(<!--\/sse-->)/)[9].replace(/<a href(.*?|\s*?)*?>/g,"").replace(/<.*?>/g,"");
+            // rawLyrics = rawLyrics.replace(/(?:\r\n|\r|\n)/g, '<br>');
+            $("#lyrics-container").text(rawLyrics);
         });
     }
     //#endregion

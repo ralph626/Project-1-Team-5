@@ -40,7 +40,7 @@
 
     <section id="secondary-page" class="container-md">
         <!-- Header Contents: Title and Back button -->
-        <div class="row my-4">
+        <div class="row p-3">
             <div class="col-2">
                 <!-- Back button -->
                 <button id="back-button" class="btn btn-dark px-4 my-4">Back</button>
@@ -57,21 +57,20 @@
             <!-- Empty div to hold a third column. -->
             <div class="col-2 text-right"></div>
         </div>
+        <hr>
         
         <!-- Page Contents -->
-        <div class="row m-3">
+        <div class="row p-3">
             <!-- Information Column -->
             <div class="col-sm-3">
                 <!-- Image tag for the album art -->
                 <img id="album-art" src="https://via.placeholder.com/200" alt="album-art">
-                <!-- Page Views Stat -->
-                <h3>Page Views: <span id="page-views"></span></h3>
             </div>
             <!-- Lyrics Column -->
             <div class="col-md-9">
                 <!-- Title to show the lyrics section -->
-                <h3>Lyrics:</h3>
-                <p id='lyrics-container'>
+                <p>Lyrics:</p>
+                <p id='lyrics-container' style="white-space: pre-line">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non iaculis nibh. Nulla ut molestie justo. Curabitur nec hendrerit magna. Mauris accumsan dolor et quam elementum, in suscipit mauris ultricies. Proin sit amet molestie dolor, at eleifend orci. Donec mattis a diam eget tempor. Aliquam finibus ornare sem, sit amet venenatis tellus mattis quis. Maecenas sed fringilla lectus. Curabitur sit amet risus vitae velit rhoncus dictum in vitae nulla. Donec scelerisque tincidunt mauris vel mattis. Maecenas interdum, erat faucibus aliquam suscipit, dolor nisl efficitur quam, hendrerit posuere felis ipsum ac lectus. Cras tincidunt lacinia egestas.
                     
                     Aliquam vel velit sed eros bibendum aliquam non tincidunt velit. Nam lobortis, tellus tempus commodo fermentum, turpis justo euismod quam, fermentum pharetra mi metus non quam. Mauris ac enim blandit, condimentum diam non, molestie odio. Donec nisi enim, aliquam vitae neque id, porta laoreet dolor. Morbi eget velit ante. Sed vitae mollis ante, id dictum est. Sed auctor dui risus, eu cursus orci molestie eu. Nulla at lorem augue. Duis sollicitudin dictum libero vitae rutrum. Suspendisse lobortis efficitur ligula ac blandit. Etiam eu dolor orci. Vestibulum posuere leo nisi, vel facilisis metus blandit eget. Mauris ut ipsum quis metus faucibus rutrum at nec quam. Suspendisse ultrices ut lacus quis fermentum.
@@ -82,10 +81,20 @@
         </div>
         
         <!-- Footer Contents: URL QR -->
-        <div class="row m-4">
-            
-            <!-- Image tag for the QR Code -->
-            <img id="qr-code" src="" height="133" width="133" alt="lyrics-qr-code">
+        <hr>
+        <div class="row p-3">
+            <div class="col">
+                <!-- Image tag for the QR Code -->
+                <img id="qr-code" src="" height="133" width="133" alt="lyrics-qr-code">
+            </div>
+            <div class="col-sm-9">
+                <!-- Full Title -->
+                <h4>Full Title: <span id="full-title"></span></h4>
+                <!-- Page Views Stat -->
+                <h4>Page Views: <span id="page-views"></span></h4>
+                <!-- Full URL link -->
+                <a id="full-url" href="" target="_blank"></a>
+            </div>
         </div>
     </section>
 </body>
