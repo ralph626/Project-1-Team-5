@@ -1,6 +1,6 @@
 GitHub Link: https://github.com/ralph626/Project-1-Team-5
 
-GitHub Pages Link: https://ralph626.github.com/Project-1-Team-5
+GitHub Pages Link: https://ralph626.github.io/Project-1-Team-5
 
 ![project screenshot](./assets/screenshot.png)
 
