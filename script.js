@@ -194,7 +194,9 @@ $(document).ready(function(){
                 /*execute a function when someone clicks on the item value (DIV element):*/
                     b.addEventListener("click", function(e) {
                     /*insert the value for the autocomplete text field:*/
-                    inp.value = this.getElementsByTagName("input")[0].value;
+                    var inputVal = this.getElementsByTagName("input")[0].value;
+                        inp.value = inputVal;
+                        searchGenius(inputVal)
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
                     closeAllLists();
@@ -221,7 +223,7 @@ $(document).ready(function(){
               addActive(x);
             } else if (e.keyCode == 13) {
               /*If the ENTER key is pressed, prevent the form from being submitted,*/
-              e.preventDefault();
+            //   e.preventDefault();
               if (currentFocus > -1) {
                 /*and simulate a click on the "active" item:*/
                 if (x) x[currentFocus].click();
